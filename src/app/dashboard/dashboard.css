@@ -1,0 +1,301 @@
+:host {
+  display: block;
+  /* This is the light grey background color sampled from the image */
+  background-color: #efefef; 
+}
+
+.dashboard-section {
+  padding: 80px 20px; /* Generous vertical spacing */
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* --- Text Styling --- */
+.text-content {
+  max-width: 800px;
+  margin: 0 auto 60px auto; /* Centered text with margin below it */
+}
+
+h2 {
+  /* Your brand's Dark Blue color */
+  font-family: 'Inter', sans-serif;
+  color: #0b0d47; 
+  font-size: 3rem; /* Large, commanding headline size */
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+p {
+  /* Your brand's Dark Grey body text color */
+  font-size: 1.1rem;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* --- Image Styling --- */
+.image-wrapper {
+  position: relative; /* CRITICAL: Allows bubbles to be positioned inside */
+  display: inline-block; /* Wraps tightly around the image */
+  width: 100%;
+  max-width: 1100px;
+  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15)); 
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block; /* Removes potential extra space below the image */
+  max-width: 1100px; /* Ensures it doesn't get too wide on huge screens */
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+/*Real-Time analytics */
+
+/* 1. Container Position (Where does the bubble sit?) */
+.bubble-right-container {
+  position: absolute;
+  top: 10%;    /* Vertical Position */
+  right: 20%;  /* Horizontal Position */
+  z-index: 10;
+}
+
+/* 2. Text Box Style */
+.bubble-right-content {
+  position: absolute;
+  width: 220px;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: left;
+  
+  /* Your colors */
+  background: rgba(185, 179, 179, 0.289); 
+  backdrop-filter: blur(6px); 
+  border: 1px solid rgba(10, 10, 10, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 5;
+  
+  /* Positioning relative to container */
+  bottom: -10px; /* Pushes box up above the dot */
+  left: 60px;   /* Pushes box right of the dot */
+}
+
+.bubble-right-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1b19a6; 
+  margin: 0 0 8px 0;
+}
+
+.bubble-right-content p {
+  font-size: 0.875rem;
+  color: #000000;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 3. Dot Style */
+.bubble-right-dot {
+  position: absolute;
+  top: 85px; left: -65px; /* Anchors dot to the container position */
+  width: 10px; height: 10px;
+  background-color: #2d3cc1d0; 
+  border: 2px solid rgb(249, 242, 242);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(119, 83, 250, 0.575);
+  z-index: 2;
+}
+
+/* 4. Line Style */
+.bubble-right-line {
+  position: absolute;
+  height: 2px;
+  background-color: #1f3eee;
+  z-index: 1;
+  
+  /* Specific Dimensions for Right Side */
+  width: 140px; 
+  bottom: -90px;
+  left: -50px;
+  transform: rotate(-35deg); 
+  transform-origin: left center;
+}
+
+
+/*Field team tracking */
+
+/* 1. Container Position */
+.bubble-left-container {
+  position: absolute;
+  top: 65.5%;  /* Vertical Position */
+  left: 20%;   /* Horizontal Position */
+  z-index: 10;
+}
+
+/* 2. Text Box Style */
+.bubble-left-content {
+  position: absolute;
+  width: 220px;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: left;
+  
+  /* Your colors */
+  background: rgba(185, 179, 179, 0.289); 
+  backdrop-filter: blur(6px); 
+  border: 1px solid rgba(10, 10, 10, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 5;
+  /* Positioning relative to container */
+  top: 51px;   /* Pushes box down below the dot */
+  right: 70px; /* Pushes box left of the dot */
+}
+
+.bubble-left-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1b19a6; 
+  margin: 0 0 8px 0;
+}
+
+.bubble-left-content p {
+  font-size: 0.875rem;
+  color: #000000;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 3. Dot Style */
+.bubble-left-dot {
+  position: absolute;
+  top: -50px; left: 55px;
+  width: 10px; height: 10px;
+  background-color: #2d3cc1d0; 
+  border: 2px solid rgb(249, 242, 242);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(119, 83, 250, 0.575);
+  z-index: 2;
+}
+
+/* 4. Line Style */
+.bubble-left-line {
+  position: absolute;
+  height: 2px;
+  background-color: #1f3eee;
+  z-index: 1;
+  
+  /* Specific Dimensions for Left Side */
+  width: 158px; /* I reset this to a normal size, unlike your 168px */
+  top: -39px;
+  right: -55px; /* Anchors to the right side of the dot */
+  transform: rotate(-35deg); 
+  transform-origin: right center;
+}
+
+/*Live Insights */
+
+/* 1. Container Position (Where does the bubble sit?) */
+.bubble-bottom-container {
+  position: absolute;
+  top: 10%;    /* Vertical Position */
+  right: 20%;  /* Horizontal Position */
+  z-index: 10;
+}
+
+/* 2. Text Box Style */
+.bubble-bottom-content {
+  position: absolute;
+  width: 220px;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: left;
+  
+  /* Your colors */
+  background: rgba(185, 179, 179, 0.289); 
+  backdrop-filter: blur(6px); 
+  border: 1px solid rgba(10, 10, 10, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+   z-index: 5;
+  
+  /* Positioning relative to container */
+  bottom: -455px; /* Pushes box up above the dot */
+  left: 57px;   /* Pushes box right of the dot */
+}
+
+.bubble-bottom-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1b19a6; 
+  margin: 0 0 8px 0;
+}
+
+.bubble-bottom-content p {
+  font-size: 0.875rem;
+  color: #000000;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 3. Dot Style */
+.bubble-bottom-dot {
+  position: absolute;
+  top: 230px; left: -95px; /* Anchors dot to the container position */
+  width: 10px; height: 10px;
+  background-color: #2d3cc1d0; 
+  border: 2px solid rgb(249, 242, 242);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(119, 83, 250, 0.575);
+  z-index: 2;
+}
+
+/* 4. Line Style */
+.bubble-bottom-line {
+  position: absolute;
+  height: 2px;
+  background-color: #1f3eee;
+  z-index: 1;
+  
+  /* Specific Dimensions for Bottom Side */
+  width: 170px; 
+  bottom: -240px;
+  left: -80px;
+  transform: rotate(35deg); 
+  transform-origin: left center;
+}
+
+/* HOVER ANIMATIONS (Applies to all bubbles)*/
+
+/* When the container is hovered, target the content box inside it */
+.bubble-right-container:hover .bubble-right-content,
+.bubble-left-container:hover .bubble-left-content,
+.bubble-bottom-container:hover .bubble-bottom-content {
+    /* 1. Change to Solid White Background */
+    background: #ffffff;
+    backdrop-filter: none; /* Remove blur for solid look */
+    
+    /* 2. Add Blue Glowing Shadow (using your blue color #1f3eee) */
+    box-shadow: 0 15px 35px -5px rgba(31, 62, 238, 0.5);
+    
+    /* Optional: Slight lift effect for better feel */
+    transform: translateY(-5px);
+    border-color: rgba(31, 62, 238, 0.3); /* Makes border slightly blue too */
+}
+
+
+/* --- Responsive Hide (Keep this at the end) --- */
+@media (max-width: 900px) {
+  .bubble-right-container, 
+  .bubble-left-container, 
+  .bubble-bottom-container {
+    display: none;
+  }
+}

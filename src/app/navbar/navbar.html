@@ -1,0 +1,37 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <span class="logo-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="#012d95" stroke-width="2"/>
+        <path d="M8 12L11 15L16 10" stroke="#012d95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="brand-name">XpressInspect</span>
+  </div>
+
+  <div class="hamburger" (click)="toggleMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+<!--  <li><a href="#pricing" class="nav-item" (click)="isMenuOpen = false">Pricing</a></li> -->
+  <ul class="nav-links" [ngClass]="{'active': isMenuOpen}">
+    <li><a routerLink="#" class="nav-item active">The Product</a></li>
+    <li><a href="#" class="nav-item">Customers</a></li>
+    <li><a routerLink="/pricing" class="nav-item" (click)="isMenuOpen = false">Pricing</a></li>
+    <li><a href="#" class="nav-item">Resources</a></li>
+    
+    <li class="mobile-actions">
+      <button class="btn btn-free-trial">Get Free Trial</button>
+      <button class="btn btn-signup">Sign Up</button>
+    </li>
+   </ul>
+
+  
+
+
+  <div class="nav-actions desktop-actions">
+    <button class="btn btn-free-trial">Get Free Trial</button>
+    <button class="btn btn-signup">Sign Up</button>
+  </div>
+</nav>

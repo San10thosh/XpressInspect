@@ -1,0 +1,244 @@
+:host {
+  /* Theme Colors */
+  --primary-blue: #000000;   /* Deep Blue/Black text */
+  --accent-blue: #012d95;    /* Vivid Blue for buttons/highlights */
+  --white: #ffffff;
+  
+  /* Card Backgrounds (Pastel Blue Theme) */
+  --bg-card-1: #e2e7ed; /* Very light blue (Base) */
+  --bg-card-2: #deebfa; /* Cool Grey/Blue (Plus) */
+  --bg-card-3: #d5e7ff; /* Slightly deeper Blue (Premium) */
+}
+
+.pricing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--primary-blue);
+  background-color: var(--white);
+}
+
+/* --- Header --- */
+.pricing-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.pill {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #002456;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  line-height: 1.2;
+}
+
+/* --- Grid Layout --- */
+.pricing-grid, .features-grid {
+  display: grid;
+  /* Sidebar + 3 Equal Columns */
+  grid-template-columns: 250px 1fr 1fr 1fr; 
+  gap: 20px;
+  align-items: start;
+}
+
+/* --- Sidebar Controls --- */
+.pricing-controls h2 {
+  font-size: 1.9rem;
+  margin-bottom: 2rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: #696d72;
+  transition: color 0.2s;
+}
+
+.radio-label.selected {
+  color: var(--primary-blue);
+}
+
+.radio-label input {
+  display: none;
+}
+
+.radio-circle {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #CBD5E1;
+  border-radius: 50%;
+  position: relative;
+}
+
+.radio-label.selected .radio-circle {
+  border-color: var(--primary-blue);
+}
+
+.radio-label.selected .radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 5px; left: 5px;
+  width: 8px; height: 8px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+}
+
+.save-badge {
+  background: #FFEDD5;
+  color: #C2410C;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+/* --- Pricing Cards --- */
+.pricing-card {
+  padding: 2.5rem 2rem;
+  border-radius: 25px; /* Big rounded corners */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pricing-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.role-desc {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-blue);
+  min-height: 40px;
+}
+
+.main-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.price-wrapper {
+  margin-bottom: 2rem;
+  color: var(--accent-blue); /* Orange in design, Blue here */
+  font-weight: 700;
+}
+/* ... Your existing CSS ... */
+
+.price-wrapper .amount {
+  font-size: 3rem;
+  line-height: 1;
+  /* NEW: Ensures numbers are monospaced so they don't wiggle while animating */
+  font-variant-numeric: tabular-nums; 
+  font-feature-settings: "tnum";
+  min-width: 1.5ch; /* Keeps space reserved to prevent layout jumping */
+  display: inline-block;
+}
+
+/* Helper classes for the card backgrounds you defined in TS */
+.bg-card-1 { background-color: var(--bg-card-1); }
+.bg-card-2 { background-color: var(--bg-card-2); }
+.bg-card-3 { background-color: var(--bg-card-3); }
+
+
+.price-wrapper .currency { font-size: 1.5rem; vertical-align: top; }
+.price-wrapper .amount { font-size: 3rem; line-height: 1; }
+.price-wrapper .period { font-size: 1rem; color: #64748B; font-weight: 400; }
+
+.btn-choose {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+  background-color: var(--primary-blue); /* Dark Blue buttons */
+  color: rgb(255, 255, 255);
+}
+
+.btn-choose:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+  box-shadow: 0 4px 6px rgba(56, 47, 233, 0.718);
+}
+
+/* Specific button colors if you want them distinct */
+.btn-premium {
+  background-color: var(--accent-blue); /* Brighter blue for premium */
+}
+
+.add-on {
+  font-size: 0.8rem;
+  color: #64748B;
+  text-align: center;
+}
+
+/* --- Feature Grid Extension --- */
+.features-grid {
+  margin-top: 3rem;
+}
+
+.feature-header h3 {
+  font-size: 1.8rem;
+}
+
+.feature-col {
+  height: 100%;
+  border-radius: 12px 12px 0 0; /* Visual connection to top cards */
+}
+
+/* Matching backgrounds for the table columns */
+.bg-1 { background-color: var(--bg-card-1); }
+.bg-2 { background-color: var(--bg-card-2); }
+.bg-3 { background-color: var(--bg-card-3); }
+
+.feature-name {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-weight: 500;
+}
+
+.feature-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .pricing-grid, .features-grid {
+    grid-template-columns: 1fr; /* Stack everything */
+  }
+  
+  .pricing-controls {
+    text-align: center;
+  }
+  
+  .billing-toggle {
+    justify-content: center;
+  }
+
+  .features-grid {
+    display: none; /* Hide complex table on mobile */
+  }
+}

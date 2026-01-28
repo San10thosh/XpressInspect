@@ -1,0 +1,71 @@
+<div class="pricing-container">
+  
+  <div class="pricing-header">
+    <div class="pill">Pricing</div>
+    <h1>Three plans, three prices.<br>No setup costs or hidden fees.</h1>
+    <p>Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime.</p>
+  </div>
+
+  <div class="pricing-grid">
+    
+    <div class="pricing-controls">
+      <h2>Pick your plan</h2>
+      
+      <label class="radio-label" [class.selected]="billingCycle === 'monthly'" (click)="toggleBilling('monthly')">
+        <div class="radio-circle"></div>
+        Monthly billing
+        <input type="radio" name="billing" [checked]="billingCycle === 'monthly'">
+      </label>
+
+      <label class="radio-label" [class.selected]="billingCycle === 'yearly'" (click)="toggleBilling('yearly')">
+        <div class="radio-circle"></div>
+        Yearly billing
+        <span class="save-badge">Save 15%</span>
+        <input type="radio" name="billing" [checked]="billingCycle === 'yearly'">
+      </label>
+    </div>
+
+    <div class="pricing-card" [ngClass]="plan.cssClass" *ngFor="let plan of plans">
+      <h3>{{ plan.name }}</h3>
+      <div class="role-desc">{{ plan.role }}</div>
+      <p class="main-desc">{{ plan.description }}</p>
+
+      <div class="price-wrapper">
+        <span class="currency">€</span>
+        <span class="amount">{{ plan.displayPrice }}</span>
+        <span class="period">/mo</span>
+      </div>
+
+      <button class="btn-choose" [ngClass]="plan.btnClass ? plan.btnClass : ''">
+        Choose {{ plan.name }}
+      </button>
+
+      <div class="add-on">
+        Additional agenda €11 month
+      </div>
+    </div>
+    <div class="features-grid">
+    <div class="feature-header">
+      <h3>Booking platform</h3>
+    </div>
+    
+    <div class="feature-col bg-1"></div>
+    <div class="feature-col bg-2"></div>
+    <div class="feature-col bg-3"></div>
+
+    <ng-container *ngFor="let feature of features">
+      <div class="feature-name">{{ feature }}</div>
+      
+      <div class="feature-check bg-1">
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6L5.5 10.5L15 1" stroke="#0F172A" stroke-width="2"/></svg>
+      </div>
+      <div class="feature-check bg-2">
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6L5.5 10.5L15 1" stroke="#0F172A" stroke-width="2"/></svg>
+      </div>
+      <div class="feature-check bg-3">
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6L5.5 10.5L15 1" stroke="#0F172A" stroke-width="2"/></svg>
+      </div>
+    </ng-container>
+  </div>
+
+</div>

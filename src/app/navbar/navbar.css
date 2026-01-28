@@ -1,0 +1,189 @@
+:host {
+  --primary-color: #0b0d47;
+  --text-color: #0b0d47;
+  --bg-color: #ffffff;
+  --border-color: #CBD5E1;
+  --highlight-blue: #0b0d47;
+  --light-blue-hover: #e0f2fe; /* Light blue for hover */
+  --glow-color: rgba(44, 56, 168, 0.568);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 4rem;
+  background-color: var(--bg-color);
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  position: relative; /* Needed for absolute positioning of mobile menu */
+}
+
+/* --- Logo Section --- */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  z-index: 1001; /* Ensure logo stays above mobile menu */
+}
+
+/* --- Nav Links Section --- */
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover Effect: Text Glow */
+.nav-item:hover {
+  color: var(--highlight-blue);
+  text-shadow: 0 0 8px var(--glow-color); /* The Glow Effect */
+}
+
+/* Active State: Highlight (Underline + Color) */
+.nav-item.active {
+  color: var(--highlight-blue);
+  font-weight: 700;
+}
+
+/* Optional: Add an underline for the active state */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--highlight-blue);
+}
+
+/* --- Buttons Section --- */
+.nav-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* FIXED: Free Trial Button Hover */
+.btn-free-trial {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+
+.btn-free-trial:hover {
+  background-color: var(--light-blue-hover); /* Changes to light blue */
+  border-color: var(--highlight-blue);
+  color: var(--highlight-blue);
+}
+
+.btn-signup {
+  background-color: var(--highlight-blue);
+  border: 1px solid var(--highlight-blue);
+  color: white;
+}
+
+.btn-signup:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 1, 125, 0.2); /* Added shadow on lift */
+}
+
+/* --- Mobile Menu Structure --- */
+.hamburger {
+  display: none; /* Hidden on desktop */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.mobile-actions {
+  display: none; /* Hide mobile buttons by default on desktop */
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 1.25rem 2rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Desktop actions hidden on mobile */
+  .desktop-actions {
+    display: none;
+  }
+
+  /* Mobile Menu Styles */
+  .nav-links {
+    position: absolute;
+    top: 0;
+    left: 0; /* Slide in from left, or use right: 0 for right side */
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transform: translateY(-100%); /* Hidden (moved up) by default */
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+  }
+
+  /* When menu is active (class added by Angular) */
+  .nav-links.active {
+    transform: translateY(0); /* Slide down */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Mobile specific adjustments for buttons */
+  .mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 80%;
+    margin-top: 20px;
+  }
+  
+  .mobile-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+}

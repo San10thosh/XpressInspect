@@ -28,8 +28,8 @@ export class PricingComponent implements OnInit {
       name: 'Base',
       role: 'Individual professionals (<500 clients)',
       description: 'The perfect match for starting professionals with a smaller clientele.',
-      monthlyPrice: 11,
-      yearlyPrice: 9, 
+      monthlyPrice: 999,
+      yearlyPrice: 899, 
       displayPrice: 0,
       cssClass: 'bg-card-1'
     },
@@ -37,8 +37,8 @@ export class PricingComponent implements OnInit {
       name: 'Plus',
       role: 'Growing teams & Smaller agencies',
       description: 'For professionals who have many hours and a large customer database.',
-      monthlyPrice: 58,
-      yearlyPrice: 49,
+      monthlyPrice: 1499,
+      yearlyPrice: 1299,
       displayPrice: 0,
       cssClass: 'bg-card-2'
     },
@@ -46,8 +46,8 @@ export class PricingComponent implements OnInit {
       name: 'Premium',
       role: 'Larger agencies (3+ professionals)',
       description: 'The ultimate solution for the bigger agencies with a larger clientele.',
-      monthlyPrice: 105,
-      yearlyPrice: 89,
+      monthlyPrice: 1999,
+      yearlyPrice: 1799,
       displayPrice: 0,
       cssClass: 'bg-card-3',
       btnClass: 'btn-premium'

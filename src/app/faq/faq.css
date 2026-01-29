@@ -1,0 +1,119 @@
+:host {
+  display: block;
+  background-color: #efefef;
+  --text-primary: #0a0942dd;
+  --text-secondary: #000000;
+  --border-color: #e2e8f0;
+}
+
+.faq-container {
+  max-width: 800px; /* Keep FAQs narrow for readability */
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Header --- */
+.faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.faq-header h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.faq-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* --- FAQ List --- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--border-color);
+}
+
+/* Question Row */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.faq-item:hover .faq-question {
+  color: #2563eb; /* Optional: Blue highlight on hover */
+}
+
+/* Icon Animation */
+.icon-wrapper {
+  color: var(--text-primary);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* When the item has class 'open', rotate the icon 90 degrees */
+.faq-item.open .icon-wrapper {
+  transform: rotate(90deg);
+  color: #2563eb;
+}
+
+/* --- Answer Animation (The Slide Down) --- */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.5, 1);
+}
+
+.answer-content {
+  padding-bottom: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+  /* Add a slight fade in for text */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* Active State */
+.faq-item.open .faq-answer {
+  /* Set a safe maximum height that is larger than any content */
+  max-height: 200px; 
+}
+
+.faq-item.open .answer-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .faq-header h2 {
+    font-size: 2rem;
+  }
+  
+  .faq-question {
+    font-size: 1rem;
+    padding-right: 10px;
+  }
+}

@@ -5,9 +5,9 @@
   --white: #ffffff;
   
   /* Card Backgrounds (Pastel Blue Theme) */
-  --bg-card-1: #e2e7ed; /* Very light blue (Base) */
-  --bg-card-2: #deebfa; /* Cool Grey/Blue (Plus) */
-  --bg-card-3: #d5e7ff; /* Slightly deeper Blue (Premium) */
+  --bg-card-1: #e2e7edd4; /* Very light blue (Base) */
+  --bg-card-2: #deebfacb; /* Cool Grey/Blue (Plus) */
+  --bg-card-3: #d5e7ffcc; /* Slightly deeper Blue (Premium) */
 }
 
 .pricing-container {
@@ -22,7 +22,7 @@
 /* --- Header --- */
 .pricing-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .pill {
@@ -34,9 +34,10 @@
 }
 
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 500;
   margin-top: 1rem;
+  margin-bottom: 0rem;
   line-height: 1.2;
 }
 
@@ -120,7 +121,7 @@ h1 {
 
 .role-desc {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-bottom: 1.5rem;
   color: var(--accent-blue);
   min-height: 40px;
@@ -193,35 +194,66 @@ h1 {
 
 /* --- Feature Grid Extension --- */
 .features-grid {
-  margin-top: 3rem;
+  /* CRITICAL FIX: This forces the features section to span ALL 4 columns */
+  grid-column: 1 / -1; 
+  width: 100%;
+
+  /* Establish the internal grid for the features */
+  display: grid;
+  /* Matches the parent columns: 250px sidebar + 3 equal columns */
+  grid-template-columns: 250px 1fr 1fr 1fr; 
+  gap: 20px;
+  align-items: center; /* Vertically centers content */
+  
+  margin-top: 7rem;
+}
+
+/* Feature Header (The "Booking platform" text) */
+.feature-header {
+  /* Ensures the header stays in the first column */
+  grid-column: 1 / 2;
+  align-self: end; /* Aligns text to bottom to match the column tops */
+  padding-bottom: 1rem;
 }
 
 .feature-header h3 {
   font-size: 1.8rem;
+  margin: 0;
+  font-weight: 700;
 }
 
+/* The curved tops of the columns */
 .feature-col {
-  height: 100%;
-  border-radius: 12px 12px 0 0; /* Visual connection to top cards */
+  
+  height: 1px; /* Give it visible height */
+  border-radius: 25px; /* Rounded top corners */
+  display : flex;
+  width: 100%;
+  align-self: end; /* Pushes it to the bottom of the grid row */
 }
 
-/* Matching backgrounds for the table columns */
+/* Background colors matching your cards */
 .bg-1 { background-color: var(--bg-card-1); }
 .bg-2 { background-color: var(--bg-card-2); }
 .bg-3 { background-color: var(--bg-card-3); }
 
+/* Feature Name (Left Column) */
 .feature-name {
   padding: 1.5rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
   font-weight: 500;
+  color: var(--primary-blue);
+  text-align: left;
 }
 
+/* Checkmarks (The 3 Columns) */
 .feature-check {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05); /* Divider lines */
+  height: 100%; /* Fills the height so background color stretches */
 }
 
 /* --- Responsive --- */

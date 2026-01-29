@@ -1,0 +1,58 @@
+<section class="inspection-container">
+  <div class="inspection-grid">
+    
+    <div class="image-column">
+      <div class="image-wrapper">
+        <img src="/assets/1.png" alt="Field inspector" class="base-image">
+        
+        <div class="popup-card smooth-float">
+          
+          <div class="card-header">
+            <div class="header-left">
+              <div class="icon-circle">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <span class="header-title">Schedule Inspection</span>
+            </div>
+            <svg class="chevron-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+
+          <div class="card-date">29 Jan, 10:30 AM</div>
+
+          <button class="btn-schedule">Schedule</button>
+
+          <div class="card-footer">
+            <div class="user-profile">
+              <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="User" class="avatar">
+              <span class="user-name">T Bruce</span>
+            </div>
+            <div class="badge-high">High</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="text-column">
+      <h2>Digital Inspection Platform for Safety & Compliance</h2>
+      <p class="description">
+        Conduct accurate safety and quality inspections using a centralized digital platform designed for field inspectors and compliance teams. Capture observations, evidence, and reports in real time—anytime, anywhere.
+      </p>
+
+      <ul class="feature-list">
+        <li *ngFor="let feature of features; let i = index" class="feature-item" [style.--item-index]="i">
+          <div class="icon-wrapper">
+            <svg class="tick-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" class="tick-path"></polyline>
+            </svg>
+          </div>
+          <span class="feature-text">{{ feature }}</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>

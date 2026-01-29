@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { PricingComponent } from './pricing/pricing'; // Import it
 import { Dashboard } from './dashboard/dashboard';
+import { DigitalInspectionComponent } from './digital-inspection/digital-inspection';
 import { Problems } from './problems/problems';
 
 export const routes: Routes = [

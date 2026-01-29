@@ -1,0 +1,267 @@
+:host {
+  display: block;
+  background-color: #efefef;
+  --text-dark: #0a0942dd;
+  --text-gray: #000000;
+  --accent-purple: #53ff7e; /* Main brand purple */
+  --accent-purple-hover: #2e46ff;
+  --danger-red: #ef4444;
+  --danger-bg: #fee2e2;
+}
+
+.inspection-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.inspection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* --- LEFT COLUMN: Images & Coded Card --- */
+.image-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  max-width: 550px;
+  width: 100%;
+}
+
+.base-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Smooth entrance for base image */
+  animation: fadeIn 1s ease-out;
+}
+
+/* --- CODED POPUP CARD --- */
+.popup-card {
+  position: absolute;
+  top: 8%; /* Adjust based on your base image layout */
+  right: 0%;
+  width: 260px; /* Fixed width like a real widget */
+  background: #ede6e6bd;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.1), /* Soft drop shadow */
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tight shadow */
+  border: 1px solid rgba(255,255,255,0.5); /* Glassy border */
+  z-index: 10;
+}
+
+/* Card Internals */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e2e8f0; /* Light grey circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #06a71b;
+}
+
+.header-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.card-date {
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  margin-left: 32px; /* Align with text above */
+  margin-bottom: 1rem;
+}
+
+.btn-schedule {
+  width: 100%;
+  padding: 10px;
+  background-color: #3a64ed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 1.2rem;
+}
+
+.btn-schedule:hover {
+  background-color: var(--accent-purple-hover);
+  transform: translateY(-2px); /* Interactive lift */
+  box-shadow: 0 4px 12px rgba(75, 71, 186, 0.579); /* Purple glow on hover */
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.8rem;
+  border-top: 1px solid #c3ccd5be;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.badge-high {
+  background-color: var(--danger-bg);
+  color: var(--danger-red);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* --- ANIMATION: Smooth Float & Pulse --- */
+/* This makes the card look like it's "breathing" or alive */
+@keyframes smoothFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02); /* Float up slightly */
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4); /* Shadow grows as it lifts */
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.smooth-float {
+  /* Runs infinitely over 4 seconds for a calm, premium feel */
+  animation: smoothFloat 3s ease-in-out infinite;
+}
+
+/* Optional: Slide in from right on load */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Combine animations if needed, or stick to the float */
+
+
+/* --- RIGHT COLUMN (Text) --- */
+.text-column h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+  margin-bottom: 2.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.icon-wrapper {
+  margin-right: 12px;
+  margin-top: 2px;
+  color: var(--accent-purple);
+  display: flex;
+  align-items: center;
+}
+
+.tick-svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Tick Animation */
+.tick-path {
+  stroke-dasharray: 25;
+  stroke-dashoffset: 25;
+  animation: drawTick 0.5s cubic-bezier(0.50, 0, 0.20, 1) forwards;
+}
+
+@keyframes drawTick {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Stagger delays */
+.feature-item .tick-path {
+  animation-delay: calc(0.3s + (var(--item-index) * 0.2s));
+}
+
+/* --- Mobile --- */
+@media (max-width: 968px) {
+  .inspection-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .image-column {
+    margin-bottom: 2rem;
+  }
+  .feature-item {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  
+  /* On mobile, center the card or hide it if it overlaps too much */
+  .popup-card {
+    right: 5%; /* Bring it in slightly */
+    top: 5%;
+    width: 200px; 
+  }
+}

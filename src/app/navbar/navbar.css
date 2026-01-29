@@ -1,6 +1,6 @@
 :host {
-  --primary-color: #0b0d47;
-  --text-color: #0b0d47;
+  --primary-color: #0a0942dd;
+  --text-color: #0a0942dd;
   --bg-color: #ffffff;
   --border-color: #CBD5E1;
   --highlight-blue: #0b0d47;
@@ -89,27 +89,29 @@
 
 /* FIXED: Free Trial Button Hover */
 .btn-free-trial {
-  background-color: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--primary-color);
+   background-color: var(--highlight-blue);
+  border: 1px solid var(--highlight-blue);
+  color: white;
+
 }
 
 .btn-free-trial:hover {
-  background-color: var(--light-blue-hover); /* Changes to light blue */
-  border-color: var(--highlight-blue);
-  color: var(--highlight-blue);
+ opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(101, 99, 170, 0.812); /* Added shadow on lift */
 }
 
 .btn-signup {
-  background-color: var(--highlight-blue);
-  border: 1px solid var(--highlight-blue);
-  color: white;
+   background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+
 }
 
 .btn-signup:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(5, 1, 125, 0.2); /* Added shadow on lift */
+   background-color: var(--light-blue-hover); /* Changes to light blue */
+  border-color: var(--highlight-blue);
+  color: var(--highlight-blue);
 }
 
 /* --- Mobile Menu Structure --- */

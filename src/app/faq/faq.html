@@ -1,0 +1,35 @@
+<section class="faq-container">
+  
+  <div class="faq-header">
+    <h2>Explore Our FAQs</h2>
+    <p>Find quick answers to commonly asked questions about XpressInspect.</p>
+  </div>
+
+  <div class="faq-list">
+    <div 
+      class="faq-item" 
+      *ngFor="let faq of faqs; let i = index" 
+      [class.open]="faq.isOpen"
+      (click)="toggleFaq(i)"
+    >
+      
+      <div class="faq-question">
+        <span>{{ faq.question }}</span>
+        
+        <div class="icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <div class="faq-answer">
+        <div class="answer-content">
+          {{ faq.answer }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

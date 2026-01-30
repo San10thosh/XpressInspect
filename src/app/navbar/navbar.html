@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" [class.nav-hidden]="isHidden">
   <div class="navbar-logo">
     <span class="logo-icon">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,10 +16,27 @@
   </div>
 <!--  <li><a href="#pricing" class="nav-item" (click)="isMenuOpen = false">Pricing</a></li> -->
   <ul class="nav-links" [ngClass]="{'active': isMenuOpen}">
-    <li><a routerLink="#" class="nav-item active">The Product</a></li>
-    <li><a href="#" class="nav-item">Customers</a></li>
-    <li><a routerLink="/pricing" class="nav-item" (click)="isMenuOpen = false">Pricing</a></li>
-    <li><a href="#" class="nav-item">Resources</a></li>
+    <li>
+      <a routerLink="/" 
+      routerLinkActive="active" 
+      [routerLinkActiveOptions]="{exact: true}"
+      class="nav-item">The Product</a></li>
+    <li><a href="#" 
+      routerLinkActive="active" 
+      class="nav-item">Customers</a>
+    </li>
+
+    <li><a routerLink="/pricing" 
+      routerLinkActive="active" 
+      class="nav-item" 
+      (click)="isMenuOpen = false">Pricing</a>
+    </li>
+    
+    <li>
+      <a href="#" 
+      routerLinkActive="active"
+      class="nav-item">Resources</a>
+    </li>
     
     <li class="mobile-actions">
       <button class="btn btn-free-trial">Get Free Trial</button>

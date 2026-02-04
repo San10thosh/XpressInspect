@@ -1,0 +1,192 @@
+:host {
+  --navy: #0f172a;
+  --blue: #3b82f6;
+  --light-blue: #eff6ff;
+  --grey: #cbd5e1;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --white: #ffffff;
+  --radius: 16px;
+  --view-height: 500px; 
+
+  display: block;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Header & Toggle */
+.header { text-align: center; margin-bottom: 40px; }
+.header h1 { font-size: 2.5rem; color: var(--navy); margin-bottom: 30px; font-weight: 500; letter-spacing: -0.02em; }
+.toggle-container { position: relative; display: flex; background: #eef2f6; border-radius: 30px; padding: 4px; width: 300px; margin: 0 auto; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); }
+.toggle-bg { position: absolute; top: 4px; left: 4px; width: 50%; height: calc(100% - 8px); background: var(--navy); border-radius: 25px; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); z-index: 0; }
+.toggle-bg.right { transform: translateX(96%); }
+.toggle-btn { flex: 1; border: none; background: transparent; padding: 12px; font-weight: 600; color: var(--text-light); cursor: pointer; z-index: 1; transition: color 0.3s; outline: none; }
+.toggle-btn.active { color: var(--white); }
+
+/* --- 3-COLUMN LAYOUT --- */
+.workflow-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr; 
+  gap: 20px;
+  height: var(--view-height);
+  align-items: stretch;
+}
+
+/* COL 1: Image */
+.visual-col { position: relative; height: 100%; }
+.sticky-image-card {
+  height: 90%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+  background: var(--navy);
+  position: relative;
+}
+.context-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+.image-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent); color: white; z-index: 2; }
+.image-overlay h3 { margin: 0; font-size: 1.5rem; }
+
+/* COL 2: Nav Rail */
+.nav-rail-col {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: relative;
+}
+.nav-track {
+  position: relative;
+  height: 60%; 
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+}
+.nav-line {
+  position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: 2px;
+  background: var(--grey);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+.dots-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.nav-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--text-light);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease; /* Faster transition for responsive feel */
+  margin: 0 auto; 
+  position: relative;
+}
+.nav-dot:hover { transform: scale(1.2); border-color: var(--blue); }
+.nav-dot.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+  transform: scale(1.3);
+}
+.nav-dot.completed { background: var(--blue); border-color: var(--blue); }
+
+/* COL 3: Scrolling Steps */
+.steps-col {
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory; /* Keeps the "Snapping" feel */
+  padding-right: 10px;
+  position: relative;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.steps-col::-webkit-scrollbar { display: none; }
+
+.steps-wrapper {
+  /* Calculated padding to allow the first item to sit exactly in the middle */
+  /* viewHeight (500) / 2 = 250. itemHeight (200) / 2 = 100. Padding = 150px */
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.step-item {
+  height: 200px; 
+  display: flex;
+  align-items: center;
+  scroll-snap-align: center; /* Vital for the carousel feel */
+  margin-bottom: 40px; /* Space between cards */
+  cursor: pointer;
+  
+  /* Blur Logic */
+  opacity: 0.4;
+  filter: blur(3px) grayscale(100%);
+  transform: scale(0.9);
+  transition: all 0.3s ease-out; /* Smooth but quick transition */
+}
+
+/* The Active State - Triggered by Scroll */
+.step-item.active {
+  opacity: 1;
+  filter: blur(0) grayscale(0);
+  transform: scale(1);
+}
+
+.card {
+  width: 100%;
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--grey);
+  transition: transform 0.4s ease;
+}
+
+.step-item.active .card {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--blue);
+}
+
+.card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.card-header h2 { margin: 0; font-size: 1.1rem; color: var(--navy); }
+.badge { background: #3b83f631; color: var(--blue); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.card p { margin: 0; color: var(--text-light); line-height: 1.6; }
+
+.description-list {
+  margin: 0;
+  padding-left: 20px; /* Indent bullets */
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.description-list li {
+  margin-bottom: 4px; /* Space between points */
+}
+
+@media (max-width: 768px) {
+  .workflow-grid { 
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    height: auto;
+    gap: 0;
+  }
+  .nav-rail-col { display: none; }
+  .visual-col { height: 300px; margin-bottom: 20px; }
+  .steps-col { height: auto; overflow: visible; scroll-snap-type: none; }
+  .steps-wrapper { padding: 0; }
+  .step-item { height: auto; margin-bottom: 20px; opacity: 1; filter: none; transform: none; }
+}

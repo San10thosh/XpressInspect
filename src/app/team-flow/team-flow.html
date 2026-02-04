@@ -1,0 +1,75 @@
+<div class="page-container">
+  
+  <header class="header">
+    <h1>Inspection & Audit Workflow</h1>
+    
+    <div class="toggle-container">
+      <div class="toggle-bg" [class.right]="activeTab === 'admin'"></div>
+      <button class="toggle-btn" [class.active]="activeTab === 'field'" (click)="switchTab('field')">Field Teams</button>
+      <button class="toggle-btn" [class.active]="activeTab === 'admin'" (click)="switchTab('admin')">Admin Teams</button>
+    </div>
+  </header>
+
+  <main class="workflow-grid">
+    
+    <aside class="visual-col">
+      <div class="sticky-image-card">
+        <div class="image-overlay">
+          <h3>{{ activeTab === 'field' ? 'Field Operations' : 'Admin Control' }}</h3>
+          <p>Real-time synchronization</p>
+        </div>
+        <img 
+          [src]="activeTab === 'field' ? '/assets/field.png' : '/assets/admin.png'" 
+          alt="Workflow Context" 
+          class="context-img"
+        >
+      </div>
+    </aside>
+
+    <aside class="nav-rail-col">
+      <div class="nav-track">
+        <div class="nav-line"></div>
+        <div class="dots-container">
+          <button 
+            *ngFor="let step of currentSteps; let i = index"
+            class="nav-dot"
+            [class.active]="i === activeStepIndex"
+            [class.completed]="i < activeStepIndex"
+            (click)="scrollToStep(i)"
+            [attr.aria-label]="'Go to step ' + (i+1)"
+            [title]="step.title">
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="steps-col" #scrollContainer (scroll)="onScroll()">
+      <div class="steps-wrapper">
+        
+        <div 
+          class="step-item" 
+          *ngFor="let step of currentSteps; let i = index"
+          #stepCard
+          [attr.data-index]="i"
+          [class.active]="i === activeStepIndex"
+          (click)="scrollToStep(i)">
+          
+          <div class="step-content card">
+            <div class="card-header">
+              <span class="badge">Step {{ step.id }}</span>
+              <h2>{{ step.title }}</h2>
+            </div>
+            
+            <ul class="description-list">
+              <li *ngFor="let point of step.description">{{ point }}</li>
+            </ul>
+
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>

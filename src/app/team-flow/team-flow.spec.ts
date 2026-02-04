@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandingPage } from './landing-page';
+import { TeamFlow } from './team-flow';
 
-describe('LandingPage', () => {
-  let component: LandingPage;
-  let fixture: ComponentFixture<LandingPage>;
+describe('TeamFlow', () => {
+  let component: TeamFlow;
+  let fixture: ComponentFixture<TeamFlow>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LandingPage]
+      imports: [TeamFlow]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LandingPage);
+    fixture = TestBed.createComponent(TeamFlow);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
